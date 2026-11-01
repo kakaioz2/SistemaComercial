@@ -48,6 +48,20 @@ public class Product {
         return this.quantity;
     }
 
+    public void setName(String name) {
+        if (name == null || name.isBlank() == true) {
+            throw new IllegalArgumentException("Produto esta sem nome!");
+        }
+        this.name = name;
+    }
+
+    public void setPrice(BigDecimal price) {
+        if (price == null || price.compareTo(BigDecimal.ZERO) <= 0) {
+            throw new IllegalArgumentException("Preço invalido!!");
+        }
+        this.price = price;
+    }
+
     public void addStock(int quantity) {
         if (quantity < 1) {
             throw new IllegalArgumentException("Quantidade Invalida!! Tem que ser maior que 0.");
@@ -56,11 +70,11 @@ public class Product {
     }
 
     public void removeStock(int quantity) {
-        if(quantity < 1){
+        if (quantity < 1) {
             throw new IllegalArgumentException("Quantidade Invalida!! Tem que ser maior que 0.");
         }
 
-        if(quantity > this.quantity){
+        if (quantity > this.quantity) {
             throw new IllegalArgumentException("Quantidade Invalida!! quantidade muito alta");
         }
         this.quantity -= quantity;
