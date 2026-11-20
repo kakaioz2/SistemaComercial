@@ -80,4 +80,9 @@ public class Product {
         this.quantity -= quantity;
     }
 
+    @Override 
+    public String toString(){
+        return "Produto \n id = " + id + ",\n name = " + name + ",\n price = " + price + ",\n quantity = " + quantity + "\n\n";
+    }
+
 }
